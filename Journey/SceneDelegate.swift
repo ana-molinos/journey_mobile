@@ -18,8 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let viewControler = UIViewController()
-        viewControler.view.backgroundColor = .green
+        let contentView = LoginView()
+        
+        let viewControler = LoginViewController(contentView: contentView)
+        
         
         let rootViewNavigation = UINavigationController(rootViewController: viewControler)
         
