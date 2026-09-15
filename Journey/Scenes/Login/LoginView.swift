@@ -12,7 +12,16 @@ class LoginView: UIView {
     let emailTextField: LoginTextField = {
         let textField = LoginTextField()
         
-        textField.titleLabel.text = "AAAAA"
+        textField.titleLabel.text = "E-mail"
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        return textField
+    }()
+    
+    let passwordTextField: LoginTextField = {
+        let textField = LoginTextField()
+        
+        textField.titleLabel.text = "Senha"
         textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
@@ -30,14 +39,21 @@ class LoginView: UIView {
     
     private func setup() {
         self.addSubview(emailTextField)
+        self.addSubview(passwordTextField)
         
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            emailTextField.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            emailTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            emailTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+//            emailTextField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 16),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
         ])
     }
 }

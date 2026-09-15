@@ -20,7 +20,17 @@ class LoginTextField: UIView {
         return text
     }()
     
-//    let title 
+    let textField: UITextField = {
+        let field = UITextField()
+        
+        field.borderStyle = .none
+        field.layer.cornerRadius = 16
+        field.clipsToBounds = true
+        field.backgroundColor = Colors.gray
+        field.translatesAutoresizingMaskIntoConstraints = false
+        
+        return field
+    }()
     
     init() {
         
@@ -35,6 +45,7 @@ class LoginTextField: UIView {
     
     private func setup() {
         addSubview(titleLabel)
+        addSubview(textField)
         
         setupConstraints()
     }
@@ -43,7 +54,13 @@ class LoginTextField: UIView {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            
+            textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 7),
+            textField.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            textField.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            textField.heightAnchor.constraint(equalToConstant: 48)
+            
         ])
     }
 }
